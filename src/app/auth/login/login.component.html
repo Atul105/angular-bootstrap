@@ -1,0 +1,48 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-6">
+            <h4>Login Form </h4>
+            <form class="login-form" #loginForm="ngForm">
+                <div class="form-group">
+                  <label for="email">Email address</label>
+                  <input type="email" class="form-control" id="email" name="email" #email="ngModel" autocomplete="off" [(ngModel)]="login.email"
+                  required   aria-describedby="emailHelp" appInputformator>     
+
+                  <small *ngIf="hasError(email)" [class]="hasError(email) ? 'error' : ''"> <!--error is called from css file-->
+                    <div *ngIf="email.errors"> <!--errors method is called from ts file-->
+                      <span *ngIf="email.errors['required']">Email Is A Required Field!</span>
+                    </div>
+                  </small>
+                </div>
+
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" name="password" #password="ngModel" autocomplete="off" [(ngModel)]="login.password"
+                  required minlength="6" maxlength="12">
+
+                  <small *ngIf="hasError(password)" [class]="hasError(password) ? 'error' : ''">
+                    <div *ngIf="password.errors">
+                      <span *ngIf="password.errors['required']">Password Is A Required Field!</span>
+                      <span *ngIf="password.errors['minlength']">Password Is Too Small</span>
+                      <span *ngIf="password.errors['maxlength']">Password Is TO Long!</span>
+                    </div>
+                  </small>
+                </div>
+                
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input" name="agree" id="agree" #agree="ngModel" required [(ngModel)]="login.agree">
+                  <label class="form-check-label" for="agree">Remember me !</label>
+
+                  <small *ngIf="hasError(agree)" [class]="hasError(agree) ? 'error' : ''"> <!--error is called from css file-->
+                    <div *ngIf="agree.errors"> <!--errors method is called from ts file-->
+                      <span *ngIf="agree.errors['required']">Please check the box!</span>
+                    </div>
+                  </small>
+                </div>
+                <button type="submit" class="btn btn-primary" (click)="onSubmit(loginForm)">Submit</button>
+              </form>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
