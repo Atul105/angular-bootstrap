@@ -9,7 +9,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 const routes: Routes=[
-  { path : "products", children:[
+  { path : "", children:[
     {path: "", component:ProductsComponent},
     {path: "list", component: ListComponent},
     {path: "create", component: CreateComponent},
@@ -24,7 +24,7 @@ const routes: Routes=[
     ListComponent
   ],
   imports: [
-    CommonModule, RouterModule.forRoot(routes)
+    CommonModule, RouterModule.forChild(routes)
   ],
   exports: [RouterModule]
 })
