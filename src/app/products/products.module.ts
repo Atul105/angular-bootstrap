@@ -6,6 +6,8 @@ import { UpdateComponent } from './update/update.component';
 import { DeleteComponent } from './delete/delete.component';
 import { ListComponent } from './list/list.component';
 import { RouterModule, Routes } from '@angular/router';
+import { ProductApiService } from '../services/product.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 const routes: Routes=[
@@ -24,8 +26,9 @@ const routes: Routes=[
     ListComponent
   ],
   imports: [
-    CommonModule, RouterModule.forChild(routes)
+    CommonModule, HttpClientModule, RouterModule.forChild(routes)
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers:[ProductApiService]
 })
 export class ProductsModule { }
