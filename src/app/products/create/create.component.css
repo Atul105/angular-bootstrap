@@ -1,0 +1,12 @@
+.form-container {
+    border: 2px solid green;
+    padding: 30px;
+}
+.radio-margin {
+        margin-top: 37px;
+}
+.has-error{
+    color:red;
+    font-weight: 400;
+    font-style: italic;
+}

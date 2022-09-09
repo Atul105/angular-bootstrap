@@ -1,1 +1,72 @@
-<p>Products update works!</p>
+<div class="container form-container" [class]="'bg-one'">
+    <h1 style="text-align: center;">Update Product : </h1>
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit(productForm)">
+        <div class="form-row">
+            <!--  Name -->
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="name">Product Name</label>
+                    <input type="text" class="form-control" name="name" formControlName="name"
+                        id="name" aria-describedby="nameHelp" >
+                    <small *ngIf="hasError('name')" [class]="hasError('name') ? 'has-error' :''">
+                        <div *ngIf="form['name'].errors">
+                            <span *ngIf="form['name'].errors['required']"> Name is a required field</span>
+                            <span *ngIf="form['name'].errors['minlength']"> Name is a min 3 char long field</span>
+                            <span *ngIf="form['name'].errors['maxlength']"> Name is a max 30 char long field</span>
+                        </div>
+                    </small>
+                </div>
+            </div>
+            <!-- Last Name -->
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="price">Product Price</label>
+                    <input type="number" class="form-control" name="price" formControlName="price"
+                        id="price" aria-describedby="priceHelp" >
+                    <small *ngIf="hasError('price')" [class]="hasError('price') ? 'has-error' :''">
+                        <div *ngIf="form['price'].errors">
+                            <span *ngIf="form['price'].errors['required']">Price is a required field</span>
+                        </div>
+                    </small>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <!-- Email -->
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="description">Product Description</label>
+                    <textarea type="text" class="form-control" name="description" formControlName="description"
+                        id="description" aria-describedby="descriptionHelp"  > </textarea>
+                        <small *ngIf="hasError('description')" [class]="hasError('description') ? 'has-error' :''"   >
+                            <div *ngIf="form['description'].errors">
+                                <span *ngIf="form['description'].errors['required']">description is a required field</span>
+                            </div>
+                       </small>
+                </div>                 
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                   <div class="form-check radio-margin">
+                       <input class="form-check-input" type="radio" name="available" formControlName="available" id="available" [value]="true" >
+                       <label class="form-check-label" for="available">
+                        Available
+                       </label>
+                     </div>
+                     <div class="form-check ">
+                       <input class="form-check-input" type="radio" name="available" formControlName="available" id="not-available" [value]="false">
+                       <label class="form-check-label" for="not-available">
+                        Not Available 
+                       </label>
+                     </div>
+                </div>
+            </div>
+           
+        </div>
+        <button type="submit" class="btn btn-success btn-block" >Submit</button>
+    </form>
+</div>
+Footer
+© 2022 GitHub, Inc.
+

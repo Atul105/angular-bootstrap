@@ -1,0 +1,11 @@
+.border-sucess{
+    border: 1px solid greenyellow;
+    
+}
+
+.border-danger{
+    border: 1px solid red;
+}
+.pointer{
+    cursor: pointer;
+}

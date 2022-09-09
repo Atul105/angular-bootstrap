@@ -8,6 +8,7 @@ import { ListComponent } from './list/list.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductApiService } from '../services/product.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 const routes: Routes=[
@@ -26,7 +27,7 @@ const routes: Routes=[
     ListComponent
   ],
   imports: [
-    CommonModule, HttpClientModule, RouterModule.forChild(routes)
+    CommonModule, HttpClientModule,ReactiveFormsModule, RouterModule.forChild(routes)
   ],
   exports: [RouterModule],
   providers:[ProductApiService]
